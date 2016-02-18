@@ -21,7 +21,7 @@ urlpatterns = patterns(
     	name='ticket-create'
 	),
     url(
-    	r'^projects/(?P<project_id>\d+)/tickets/(?P<ticket_id>\d+)/edit$',
+    	r'^tickets/(?P<ticket_id>\d+)/edit$',
     	update_ticket_view,
     	name='ticket-update'
 	),
