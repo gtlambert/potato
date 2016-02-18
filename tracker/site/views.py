@@ -47,6 +47,12 @@ class ProjectListView(ListView):
     model = Project
     template_name = "site/project_list.html"
 
+    def get_queryset(self):
+        qs = super(ProjectListView, self).get_queryset()
+        return sorted(qs,
+            key=lambda project: project.tickets.filter(assignees=self.request.user.pk).count(),
+            reverse=True)
+
 
 project_list_view = ProjectListView.as_view()
 
