@@ -11,6 +11,10 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(baseSrcDir + '/css'));
 });
 
+gulp.task('watch-sass', function() {
+	gulp.watch(baseSrcDir + '/scss/*.scss', ['sass']);
+})
+
 gulp.task('copy-foundation-fonts', function () {
 	gulp.src(baseSrcDir + '/components/foundation-icon-fonts/foundation-icons.{ttf,woff,eof,svg}')
 		.pipe(gulp.dest(baseSrcDir + '/css'));
@@ -39,4 +43,6 @@ gulp.task('copy-js', function () {
 });
 
 gulp.task('build', ['build-styles', 'copy-styles', 'copy-js', 'concat-js'])
-gulp.task('default', ['build-styles']);
+gulp.task('default', ['build-styles'], function() {
+	gulp.start('watch-sass');
+});

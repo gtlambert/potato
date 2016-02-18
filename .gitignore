@@ -1,3 +1,4 @@
 *.pyc
 sitepackages/
 .storage/
+node_modules/
