@@ -3,12 +3,11 @@ from django.conf.urls import url, patterns
 from .views import (
 	my_tickets_view,
 	create_project_view,
-	update_project_view,
 	project_view,
 	create_ticket_view,
 	update_ticket_view,
 	project_list_view,
-	update_project_view
+	update_project_view,
 )
 
 
