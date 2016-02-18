@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="large-8 large-centered columns">
+	<p>Are you sure you want to delete the following ticket:</p>
+	<div class="panel large-4">
+		<h5>{{ ticket.project.title }}: {{ ticket.title }}</h5>
+		<hr>
+		<p>{{ ticket.description }}</p>
+		<small>Last updated: {{ ticket.modified }}</small>
+	</div>
+	<form action="" method="post">
+		{% csrf_token %}
+		<input class="button small round alert" type="submit" value="DELETE">
+	</form>
+</div>
+{% endblock %}

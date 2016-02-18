@@ -13,6 +13,7 @@
 					<th width="1200">Title</th>
 					<th width="1200">Assigned</th>
 					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -27,10 +28,13 @@
 					{% endfor %}
 					</td>
 					<td>
-						<a href="{% url "ticket-update" ticket_id=ticket.pk %}">
-							<i class="fi-pencil">
-
-							</i>
+						<a href="{% url "ticket-update" ticket_id=ticket.pk %}" title="Edit Ticket">
+							<i class="fi-pencil"></i>
+						</a>
+					</td>
+					<td>
+						<a href="{% url "ticket-delete" ticket_id=ticket.pk %}" title="Delete Ticket">
+							<i class="fi-x"></i>
 						</a>
 					</td>
 				</tr>
