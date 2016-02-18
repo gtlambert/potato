@@ -9,6 +9,9 @@ class Project(TimeStampedModel):
     title = models.CharField(max_length=200)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
 
+    def number_tickets(self):
+        return self.tickets.count()
+
     def __str__(self):
         return self.title
 
