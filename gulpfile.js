@@ -17,7 +17,7 @@ gulp.task('watch-sass', function() {
 
 gulp.task('copy-foundation-fonts', function () {
 	gulp.src(baseSrcDir + '/components/foundation-icon-fonts/foundation-icons.{ttf,woff,eof,svg}')
-		.pipe(gulp.dest(baseSrcDir + '/css'));
+		.pipe(gulp.dest(baseDestDir + '/css'));
 });
 
 gulp.task('build-styles', ['sass', 'copy-foundation-fonts'])
@@ -26,7 +26,8 @@ gulp.task('concat-js', function() {
 	gulp.src([
 			baseSrcDir + '/components/fastclick/lib/fastclick.js',
 			baseSrcDir + '/components/jquery/dist/jquery.min.js',
-			baseSrcDir + '/components/foundation/js/foundation/foundation.min.js',
+			baseSrcDir + '/components/chosen/chosen.jquery.min.js',
+			baseSrcDir + '/components/foundation/js/foundation.min.js',
 			baseSrcDir + '/js/app.js'
 		])
 		.pipe(concat('app.built.js'))
@@ -36,6 +37,10 @@ gulp.task('concat-js', function() {
 
 gulp.task('copy-styles', function () {
 	gulp.src(baseSrcDir + '/css/*.css').pipe(gulp.dest(baseDestDir + '/css/'));
+	gulp.src(baseSrcDir + '/components/chosen/chosen.min.css')
+		.pipe(gulp.dest(baseDestDir + '/components/chosen/'));
+	gulp.src(baseSrcDir + '/components/chosen/*.png')
+		.pipe(gulp.dest(baseDestDir + '/components/chosen/'));
 });
 
 gulp.task('copy-js', function () {
