@@ -54,6 +54,7 @@ class TicketForm(BaseTrackerForm):
         self.fields['assignees'].queryset = get_user_model().objects.all()
         self.fields['assignees'].choices = [(user.id, user.email)
             for user in self.fields['assignees'].queryset]
+        self.fields['assignees'].help_text = ''
 
     def pre_save(self, instance):
         instance.created_by = self.user
